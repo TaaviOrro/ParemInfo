@@ -4,8 +4,8 @@ const nextConfig = {
     images: {
         unoptimized: true,
     },
-    basePath: '/ParemInfo',
-    assetPrefix: '/ParemInfo/',
+    basePath: process.env.NODE_ENV === 'development' ? '' : '/ParemInfo',
+    assetPrefix: process.env.NODE_ENV === 'development' ? '' : '/ParemInfo/',
 };
 
 export default nextConfig;
