@@ -4,9 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "build": "next build && touch out/.nojekyll",
+    "export": "next export"
   },
   "dependencies": {
     "react": "^19.0.0",
