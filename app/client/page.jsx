@@ -2,10 +2,10 @@
 import { useAppContext } from "../context/AppContext"
 
 const ClientPage = () => {
-  const { activeClient } = useAppContext()
+  const { app } = useAppContext()
 
   return (
-    <div>ClientPage: { activeClient }</div>
+    <div>ClientPage: { app.activeClient }</div>
   )
 }
 export default ClientPage
