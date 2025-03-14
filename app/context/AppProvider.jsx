@@ -1,9 +1,11 @@
 'use client'
 import { act, useReducer } from "react";
 import AppContext from "./AppContext";
+import clientData from "../../data/client.json";
 
 const initialState = {
     activeClient: 0,
+    clientList: clientData,
 }
 
 function appReducer(state, action) {
