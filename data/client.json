@@ -1,0 +1,43 @@
+[
+    {
+      "id": 1,
+      "eesnimi": "Jaagup",
+      "perenimi": "Seegup",
+      "pilt": "",
+      "id_kaardi_koopia": "",
+      "isikukood": "39001010001"
+    },
+    {
+      "id": 2,
+      "eesnimi": "Mari-Liis",
+      "perenimi": "Kask",
+      "pilt": "",
+      "id_kaardi_koopia": "",
+      "isikukood": "49002020002"
+    },
+    {
+      "id": 3,
+      "eesnimi": "Karl",
+      "perenimi": "Vaher",
+      "pilt": "",
+      "id_kaardi_koopia": "",
+      "isikukood": "50003030003"
+    },
+    {
+      "id": 4,
+      "eesnimi": "Sandra",
+      "perenimi": "Põld",
+      "pilt": "",
+      "id_kaardi_koopia": "",
+      "isikukood": "60004040004"
+    },
+    {
+      "id": 5,
+      "eesnimi": "Tõnis",
+      "perenimi": "Saar",
+      "pilt": "",
+      "id_kaardi_koopia": "",
+      "isikukood": "70005050005"
+    }
+  ]
+  
