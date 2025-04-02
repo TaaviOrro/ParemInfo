@@ -11,13 +11,19 @@ const ClientPage = () => {
   }, [app.activeClient])
 
   return (
-    <div>
-      <div>Eesnimi: {activeClient.eesnimi}</div>
-      <div>Perekonnanimi: {activeClient.perenimi}</div>
-      <div>Isikukood: {activeClient.isikukood}</div>
-      <div>Pilt: {activeClient.pilt}</div>
-      <div>ID kaart: {activeClient.id_kaardi_koopia}</div>
+    <div className="client-details">
+      {activeClient ? (
+        <>
+          <div>Eesnimi: {activeClient?.eesnimi}</div>
+          <div>Perekonnanimi: {activeClient?.perenimi}</div>
+          <div>Isikukood: {activeClient?.isikukood}</div>
+          {activeClient.pilt && <img src={activeClient?.pilt} alt="Kliendi pilt" style={{ maxWidth: "200px", borderRadius: "8px", margin: "1rem 0" }} />}
+          <div>ID kaart: {activeClient?.id_kaardi_koopia || "Puudub"}</div>
+        </>
+      ) : (
+        <p>Vali klient külgribalt</p>
+      )}
     </div>
-  )
-}
+  );
+};
 export default ClientPage
