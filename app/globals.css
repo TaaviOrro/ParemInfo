@@ -1,5 +1,3 @@
-
-
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -18,13 +16,12 @@
   box-sizing: border-box;
 }
 
-html,
-body {
+html, body {
   margin: 0;
   padding: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
+  height: auto;
+  min-height: 100vh;
+  overflow-y: auto;
 }
 
 body {
@@ -102,18 +99,12 @@ aside a:active {
 }
 
 button {
-  all: unset; 
-  display: block; 
-  width: 100%; 
-  text-align: center; 
-  color: white; 
-  padding: 0.75rem 1rem; 
-  border-radius: 8px; 
-  background-color: #444; 
-  transition: all 0.3s ease; 
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
-  font-size: 1rem; 
-  font-weight: bold; 
+  padding: 10px 20px;
+  background-color: #444;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
   cursor: pointer;
 }
 
@@ -160,54 +151,51 @@ a button:active {
   transform: translateY(0);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
 main {
   grid-area: main;
   background-color: #f5f5f5;
   padding: 1rem;
 }
 
-.custom-sidebar {
-  display: block;
-  grid-area: sidebar;
-  background-color: #333;
-  padding: 1rem;
-  height: 100%;
-}
-
-.client-page {
+.client-wrapper {
   display: grid;
-  grid-template-columns: 2fr 1fr;
-  grid-template-rows: auto auto;
-  gap: 1rem;
-  padding: 1rem;
-  background-color: #f5f5f5;
-  font-family: Arial, sans-serif;
+  grid-template-columns: repeat(2, 2fr) !important;
+  width: 100% !important;
+  gap: 30px;
+  padding: 20px;
+  align-items: flex-start;
 }
 
-.client-info {
+.left-column, .right-column {
   display: flex;
-  gap: 1rem;
-  grid-column: 1 / 2;
-  grid-row: 1 / 2;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  padding: 1rem;
-  border-radius: 8px;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.client-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #fff;
+  padding: 5px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  text-align: center;
 }
 
 .client-photo {
-  flex: 0 0 150px;
-  height: 150px;
-  background-color: #eee;
+  width: 100%;
+  height: 200px;
+  background: #eee;
   display: flex;
-  justify-content: center;
   align-items: center;
-  border: 1px solid #ccc;
+  justify-content: center;
   border-radius: 8px;
+  margin-bottom: 15px;
 }
 
 .client-photo img {
-  max-width: 100%;
   max-height: 100%;
   border-radius: 8px;
 }
@@ -217,24 +205,96 @@ main {
   color: #666;
 }
 
-.client-details {
-  flex: 1;
+.side-info {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
-.client-details h2 {
-  margin: 0 0 0.5rem 0;
-}
-
-.guardian-info {
-  grid-column: 1 / 2;
-  grid-row: 2 / 3;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  padding: 1rem;
+.info-box {
+  background: #fff;
+  padding: 15px;
   border-radius: 8px;
+  border: 1px solid #ccc;
 }
 
-.info-button {
+.info-box button,
+.info-card button {
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 10px;
+}
+.grid-boxes {
+  display: grid;
+  grid-template-columns: repeat(2, 2fr) !important;
+  width: 100%;
+  gap: 15px;
+  padding: 20px;
+  align-items: flex-start;  
+}
+
+
+.info-card {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  gap: 20px;
+  background: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+.modal {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  width: 400px;
+  max-width: 90%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.modal-content h3 {
+  margin-top: 0;
+}
+
+.modal-content form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.modal-content label {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.modal-content input {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.modal-content button {
+  margin-top: 1rem;
   padding: 0.5rem 1rem;
   background-color: #555;
   color: #fff;
@@ -243,7 +303,7 @@ main {
   cursor: pointer;
 }
 
-.info-button:hover {
+.modal-content button:hover {
   background-color: #333;
 }
 
@@ -271,12 +331,13 @@ main {
 .client-actions th {
   background-color: #f0f0f0;
 }
+
 .events-page {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  padding: 1rem;
-  background-color: #f5f5f5;
+  padding: 2rem;
+  background-color: #f9f9f9;
   font-family: Arial, sans-serif;
 }
 
@@ -296,12 +357,6 @@ main {
   background-color: #fff;
   border: 1px solid #ccc;
   font-weight: bold;
-}
-
-.events-page {
-  padding: 2rem;
-  background-color: #f9f9f9;
-  font-family: Arial, sans-serif;
 }
 
 .event-details {
@@ -360,13 +415,98 @@ main {
   background-color: #333;
 }
 
+
+@media (max-width: 768px) {
+  .client-wrapper {
+    display: grid;
+  grid-template-columns: repeat(2, 2fr) !important;
+  width: 100% !important;
+  gap: 15px;
+  }
+
+  .grid-boxes {
+    
+    gap: 24px;
+  }
+}
+
+.info-box {
+  background: #fff;
+  padding: 16px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+  text-align: center;
+  min-height: 150px;
+}
+
+/* Pangaandmete tabel */
+.bank-info-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 15px;
+}
+
+.bank-info-table td {
+  padding: 8px;
+  border-bottom: 1px solid #eee;
+}
+
+.bank-info-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* Muutmise vorm */
+.bank-edit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.bank-edit-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.bank-edit-form input {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.button-group {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.save-btn {
+  
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.cancel-btn {
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Üldine kujundus */
+
 .modal {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.5);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -374,51 +514,22 @@ main {
 }
 
 .modal-content {
-  background-color: #fff;
-  padding: 2rem;
+  background: white;
+  padding: 24px;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  text-align: center;
-  max-width: 400px;
   width: 100%;
-}
-
-.modal-content h3 {
-  margin-top: 0;
-}
-
-.modal-content form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  margin-top: 1rem;
+  max-width: 500px;
 }
 
 .modal-content label {
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-  font-size: 0.9rem;
-  color: #333;
+  display: block;
+  margin-bottom: 8px;
 }
 
 .modal-content input {
-  padding: 0.5rem;
-  border: 1px solid #ccc;
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 16px;
+  border: 1px solid #ddd;
   border-radius: 4px;
-  font-size: 1rem;
-}
-
-.modal-content button {
-  margin-top: 1rem;
-  padding: 0.5rem 1rem;
-  background-color: #555;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.modal-content button:hover {
-  background-color: #333;
 }
